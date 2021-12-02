@@ -1,8 +1,13 @@
 const express = require('express')
-let api_routes = require('./routes/api')
+const api_routes = require('./routes/api')
+const path = require('path')
 
 // Create our web app.
 const app = express()
+
+const vueClientPath = path.join(__dirname, 'student-sign-in-client', 'dist')
+
+app.use(express.static(vueClientPath))
 
 /* Make sure that we're able to process JSON bodies.
     Remember, a req body can contain more than just JSON.
